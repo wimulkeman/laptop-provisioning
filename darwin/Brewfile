@@ -6,6 +6,7 @@ brew "k9s"
 brew "mas"
 brew "zsh"
 
+cask "gitkraken"
 cask 'google-chrome'
 cask "insomnia"
 cask "iterm2"
