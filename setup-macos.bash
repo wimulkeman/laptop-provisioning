@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo "========================================"
-echo "          Laptop Provisioning           "
+echo "========= Laptop Provisioning =========="
 echo "========================================"
 
 echo '==> Enabling FileVault'
 sudo fdesetup enable
 
-echo "==> Checking availability Brew"
+echo "==> Brew - Checking availability Brew"
 brewAvailable=`command -v brew`
 if [ "${brewAvailable}" = "" ]; then
   echo "## Brew not available"
@@ -17,7 +17,7 @@ else
   echo "## Brew already installed"
 fi
 
-echo "==> Fetching Brewfile"
+echo "==> Brew - Fetching Brewfile"
 curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile > Brewfile
-echo "==> Installing dependencies through Brew"
+echo "==> Brew - Installing dependencies through Brew"
 brew bundle install --file=./Brewfile
