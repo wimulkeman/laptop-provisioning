@@ -4,11 +4,11 @@ brew "git"
 brew "go-task"
 brew "k9s"
 brew "mas"
-brew "openvpn"
 brew "zsh"
 
 cask "insomnia"
 cask "iterm2"
+cask "openvpn-connect"
 cask "orbstack"
 cask "phpstorm"
 
