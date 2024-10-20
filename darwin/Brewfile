@@ -6,4 +6,4 @@ cask "phpstorm"
 
 mas "Slack", id: 803453959
 mas "LastPass", id: 926036361
-mas "Sequel Ace": id: 1518036000
+mas "Sequel Ace", id: 1518036000
