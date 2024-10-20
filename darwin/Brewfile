@@ -1,9 +1,18 @@
-brew "git"
 brew "docker"
+brew "dnsmasq"
+brew "git"
+brew "go-task"
 brew "mas"
+brew "zsh"
 
+brew "k9s"
+brew "openvpn"
+
+cask "insomnia"
+cask "iterm2"
+cask "orbstack"
 cask "phpstorm"
 
-mas "Slack", id: 803453959
 mas "LastPass", id: 926036361
 mas "Sequel Ace", id: 1518036000
+mas "Slack", id: 803453959
