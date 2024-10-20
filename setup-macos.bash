@@ -10,7 +10,7 @@ brewAvailable=`command -v brew`
 if [ "${brewAvailable}" = "" ]; then
   echo "## Brew not available"
   echo "++ Installing Brew"
-#  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "## Brew available"
 fi
@@ -22,7 +22,7 @@ do
   if [ "${packageAvailable}" = "" ]; then
     echo "## $package not available"
     echo "++ Installing $package"
-#    brew install $package
+    brew install $package
   else
     echo "## $package available"
   fi
