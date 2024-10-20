@@ -15,5 +15,10 @@ else
   echo "## Brew already installed"
 fi
 
+echo "==> Fetching Brewfile"
 curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile > Brewfile
+echo "==> Installing dependencies through Brew"
 brew bundle install --file=./Brewfile
+
+echo '==> Enabling FileVault'
+sudo fdesetup enable
