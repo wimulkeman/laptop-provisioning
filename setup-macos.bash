@@ -4,7 +4,7 @@ echo "========================================"
 echo "          Laptop Provisioning           "
 echo "========================================"
 
-echo "> Checking availability Brew"
+echo "==> Checking availability Brew"
 
 brewAvailable=`command -v brew`
 if [ "${brewAvailable}" = "" ]; then
@@ -12,10 +12,10 @@ if [ "${brewAvailable}" = "" ]; then
   echo "++ Installing Brew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
-  echo "## Brew available"
+  echo "## Brew already installed"
 fi
 
-echo "> Checking Homebrew packages"
+echo "==> Checking Homebrew packages"
 for package in "git" "ansible"
 do
   packageAvailable=`command -v $package`
@@ -24,6 +24,6 @@ do
     echo "++ Installing $package"
     brew install $package
   else
-    echo "## $package available"
+    echo "## $package already installed"
   fi
 done
