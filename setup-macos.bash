@@ -27,3 +27,7 @@ do
     echo "## $package already installed"
   fi
 done
+
+echo "## Installed Ansible versions"
+ansible --version
+ansible-community --version
