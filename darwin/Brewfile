@@ -2,11 +2,10 @@ brew "docker"
 brew "dnsmasq"
 brew "git"
 brew "go-task"
-brew "mas"
-brew "zsh"
-
 brew "k9s"
+brew "mas"
 brew "openvpn"
+brew "zsh"
 
 cask "insomnia"
 cask "iterm2"
