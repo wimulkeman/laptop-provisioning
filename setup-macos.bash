@@ -15,7 +15,8 @@ else
   echo "## Brew already installed"
 fi
 
-brew bundle install --file=https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile
+curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile > Brewfile
+brew bundle install --file=./Brewfile
 
 #echo "==> Checking Homebrew packages"
 #for package in "git" "ansible"
