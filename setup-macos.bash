@@ -5,31 +5,25 @@ echo "          Laptop Provisioning           "
 echo "========================================"
 
 echo "> Checking availability Brew"
-if command -v brew 2>&1 >/dev/null
-then
-  echo "## Brew available"
-else
+
+brewAvailable=`command -v brew`
+if [ "${brewAvailable}" = "" ]; then
   echo "## Brew not available"
   echo "++ Installing Brew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  echo "## Brew available"
 fi
 
 echo "> Checking Homebrew packages"
-if command -v git 2>&1 >/dev/null
-then
-  echo "## Git available"
-else
-  echo "## Git not available"
-  echo "++ Installing Git"
-  brew install git
-fi
-
-echo "> Checking Homebrew packages"
-if command -v git 2>&1 >/dev/null
-then
-  echo "## Ansible available"
-else
-  echo "## Ansible not available"
-  echo "++ Installing Ansible"
-  brew install ansible
-fi
+for package in "git" "ansible"
+do
+  packageAvailable=`command -v $package`
+  if [ "${packageAvailable}" = "" ]; then
+    echo "## $package not available"
+    echo "++ Installing $package"
+#    brew install $package
+  else
+    echo "## $package available"
+  fi
+done
