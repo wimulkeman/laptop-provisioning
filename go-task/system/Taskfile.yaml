@@ -2,8 +2,11 @@ version: '3'
 
 includes:
   configure:
-      taskfile: ./configure/Taskfile.yaml
+    taskfile: ./configure/Taskfile.yaml
+    dir: ../
   install:
     taskfile: ./install/Taskfile.yaml
+    dir: ../
   generate:
-      taskfile: ./generate/Taskfile.yaml
+    taskfile: ./generate/Taskfile.yaml
+    dir: ../

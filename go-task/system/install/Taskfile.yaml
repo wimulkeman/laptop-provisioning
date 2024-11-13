@@ -2,5 +2,7 @@ version: '3'
 includes:
   brew:
     taskfile: ./brew/Taskfile.yaml
+    dir: ../../
   chrome:
     taskfile: ./chrome/Taskfile.yaml
+    dir: ../../
