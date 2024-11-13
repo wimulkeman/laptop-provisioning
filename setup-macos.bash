@@ -22,8 +22,11 @@ curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs
 echo "==> Brew - Installing basic dependencies through Brew"
 brew bundle install --file=./Brewfile.base
 
-echo '==> Creating directory for provisioning scripts'
+echo "==> Brew - Removing Brewfile for basic dependencies"
+rm Brewfile.base
+
+echo '==> Provisioning setup - Creating directory for provisioning scripts'
 mkdir -p ~/laptop-provisioning
 
-echo '==> Fetching provisioning scripts'
-git clone git@github.com:wimulkeman/laptop-provisioning.git ~/laptop-provisioning
+echo '==> Provisioning setup - Fetching provisioning scripts'
+git clone https://github.com/wimulkeman/laptop-provisioning.git ~/laptop-provisioning
