@@ -17,7 +17,13 @@ else
   echo "## Brew already installed"
 fi
 
-echo "==> Brew - Fetching Brewfile"
+echo "==> Brew - Fetching Brewfile for basic dependencies"
 curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile.base > Brewfile.base
-echo "==> Brew - Installing dependencies through Brew"
+echo "==> Brew - Installing basic dependencies through Brew"
 brew bundle install --file=./Brewfile.base
+
+echo '==> Creating directory for provisioning scripts'
+mkdir -p ~/laptop-provisioning
+
+echo '==> Fetching provisioning scripts'
+git clone git@github.com:wimulkeman/laptop-provisioning.git ~/laptop-provisioning
