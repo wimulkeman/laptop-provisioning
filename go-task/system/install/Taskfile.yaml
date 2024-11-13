@@ -1,0 +1,6 @@
+version: '3'
+includes:
+  brew:
+    taskfile: ./brew/Taskfile.yaml
+  chrome:
+    taskfile: ./chrome/Taskfile.yaml

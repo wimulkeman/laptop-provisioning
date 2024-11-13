@@ -1,0 +1,9 @@
+version: '3'
+
+includes:
+  configure:
+      taskfile: ./configure/Taskfile.yaml
+  install:
+    taskfile: ./install/Taskfile.yaml
+  generate:
+      taskfile: ./generate/Taskfile.yaml
