@@ -1,0 +1,8 @@
+brew "git"
+brew "go-task"
+brew "mas"
+
+cask 'google-chrome'
+
+mas "LastPass", id: 926036361
+mas "Slack", id: 803453959

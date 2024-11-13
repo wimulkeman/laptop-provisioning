@@ -18,6 +18,6 @@ else
 fi
 
 echo "==> Brew - Fetching Brewfile"
-curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile > Brewfile
+curl -fsSL https://raw.githubusercontent.com/wimulkeman/laptop-provisioning/refs/heads/main/darwin/Brewfile.base > Brewfile.base
 echo "==> Brew - Installing dependencies through Brew"
-brew bundle install --file=./Brewfile
+brew bundle install --file=./Brewfile.base
