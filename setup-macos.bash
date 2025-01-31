@@ -30,3 +30,10 @@ mkdir -p ~/laptop-provisioning
 
 echo '==> Provisioning setup - Fetching provisioning scripts'
 git clone https://github.com/wimulkeman/laptop-provisioning.git ~/laptop-provisioning
+
+cd ~/laptop-provisioning/go-task
+echo '==> Provisioning setup - Setup .env file'
+task system:setup-env
+
+echo '==> Provisioning setup - Running provisioning tasks'
+task system:setup
