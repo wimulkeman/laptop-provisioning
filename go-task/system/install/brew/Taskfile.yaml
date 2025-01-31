@@ -1,6 +1,7 @@
 version: '3'
 tasks:
   backend:
-    desc: Install Homebrew packages for backend development
+    prompt: 'Install Homebrew packages for backend development?'
+    desc: Installing Homebrew packages for backend development
     cmds:
       - brew bundle install --file=../darwin/Brewfile.backend
