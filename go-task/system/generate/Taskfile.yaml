@@ -3,4 +3,6 @@ tasks:
   ssh-key:
     desc: Generate SSH key
     cmds:
-      - ssh-keygen -t ed25519 -C "$USER_EMAIL" -f ~/.ssh/"$USER_EMAIL"
+      - ssh-keygen -t ed25519 -C {{.USER_EMAIL}} -f ~/.ssh/"$USER_EMAIL"
+    status:
+      - test -f ~/.ssh/{{.USER_EMAIL}}
