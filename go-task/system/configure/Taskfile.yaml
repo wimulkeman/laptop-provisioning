@@ -3,4 +3,4 @@ version: '3'
 includes:
   env-file:
     taskfile: ./env-file/Taskfile.yaml
-    dir: ../
+    dir: ../../

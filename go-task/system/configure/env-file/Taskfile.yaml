@@ -10,7 +10,13 @@ tasks:
   fill:
     desc: Fill the .env file
     cmds:
-      - task system:configure:env-file:fill-user-email
+      - task: fill-user-email
+      - task: fill-full-name
+  fill-full-name:
+    cmds:
+      - 'clear; read -p "Enter your full name (Like: John Doe): " FULL_NAME; echo "FULL_NAME=$FULL_NAME" >> .env'
+    status:
+      - grep -q "FULL_NAME=" .env
   fill-user-email:
     cmds:
       - 'clear; read -p "Enter your work email address: " USER_EMAIL; echo "USER_EMAIL=$USER_EMAIL" >> .env'

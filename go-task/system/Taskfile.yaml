@@ -15,22 +15,22 @@ tasks:
   setup-env:
     desc: 'Set up the environment'
     cmds:
-      - task system:configure:env-file:create
-      - task system:configure:env-file:fill
+      - task: configure:env-file:create
+      - task: configure:env-file:fill
 
   install:
     desc: 'Install applications and tools'
     cmds:
-      - task install:brew:backend
-      - task install:chrome:extensions
+      - task: install:brew:backend
+      - task: install:chrome:extensions
 
   generate:
     desc: 'Generate required files'
     cmds:
-      - task system:generate:ssh-key
+      - task: system:generate:ssh-key
 
   setup:
     desc: 'Set up the working station'
     cmds:
-      - task system:install
-      - task system:generate
+      - task: system:install
+      - task: system:generate
