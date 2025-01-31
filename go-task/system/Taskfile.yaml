@@ -10,3 +10,27 @@ includes:
   generate:
     taskfile: ./generate/Taskfile.yaml
     dir: ../
+
+tasks:
+  setup-env:
+    desc: 'Set up the environment'
+    cmds:
+      - task system:configure:create-env-file
+      - task system:configure:fill-env-file
+
+  install:
+    desc: 'Install applications and tools'
+    cmds:
+      - task install:brew:backend
+      - task install:chrome:extensions
+
+  generate:
+    desc: 'Generate required files'
+    cmds:
+      - task system:generate:ssh-key
+
+  setup:
+    desc: 'Set up the working station'
+    cmds:
+      - task system:install
+      - task system:generate
