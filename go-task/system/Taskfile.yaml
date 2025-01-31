@@ -15,8 +15,8 @@ tasks:
   setup-env:
     desc: 'Set up the environment'
     cmds:
-      - task system:configure:create-env-file
-      - task system:configure:fill-env-file
+      - task system:configure:env-file:create
+      - task system:configure:env-file:fill
 
   install:
     desc: 'Install applications and tools'

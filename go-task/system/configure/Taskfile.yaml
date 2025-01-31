@@ -1,18 +1,6 @@
 version: '3'
 
-tasks:
-  create-env-file:
-    desc: Create .env file
-    cmds:
-      - touch .env
-    status:
-      - test -f .env
-  fill-env-file:
-    desc: Add variables to .env file
-    cmds:
-      - task system:configure:fill-env-file-user-email
-  fill-env-file-user-email:
-    cmds:
-      - 'clear; read -p "Enter your work email address: " USER_EMAIL; echo "USER_EMAIL=$USER_EMAIL" >> .env'
-    status:
-      - grep -q "USER_EMAIL=" .env
+includes:
+  env-file:
+    taskfile: ./env-file/Taskfile.yaml
+    dir: ../

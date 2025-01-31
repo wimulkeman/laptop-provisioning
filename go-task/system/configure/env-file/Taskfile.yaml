@@ -1,0 +1,18 @@
+version: 3
+
+tasks:
+  create:
+    desc: Create the .env file
+    cmds:
+      - touch .env
+    status:
+      - test -f .env
+  fill:
+    desc: Fill the .env file
+    cmds:
+      - task system:configure:env-file:fill-user-email
+  fill-user-email:
+    cmds:
+      - 'clear; read -p "Enter your work email address: " USER_EMAIL; echo "USER_EMAIL=$USER_EMAIL" >> .env'
+    status:
+      - grep -q "USER_EMAIL=" .env
