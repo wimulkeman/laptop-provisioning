@@ -4,3 +4,6 @@ includes:
   env-file:
     taskfile: ./env-file/Taskfile.yaml
     dir: ../../
+  git:
+    taskfile: ./git/Taskfile.yaml
+    dir: ../../

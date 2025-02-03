@@ -1,0 +1,23 @@
+version: 3
+
+tasks:
+  config:
+    desc: Configure Git
+    cmds:
+      - git config --global user.name "{{.FULL_NAME}}"
+      - git config --global user.email "{{.USER_EMAIL}}"
+      - git config --global core.editor "vim"
+      - git config --global user.signingkey "~/.ssh/{{.USER_EMAIL}}"
+      - git config --global commit.gpgSign true
+      - git config --global tag.gpgSign true
+      - git config --global gpg.format ssh
+    status:
+      - git config --global --get user.name
+      - git config --global --get user.email
+      - git config --global --get core.editor
+      - git config --global --get user.signingkey
+      - git config --global --get commit.gpgSign
+      - git config --global --get tag.gpgSign
+      - git config --global --get gpg.format
+    depends:
+      - system:generate:ssh-key
