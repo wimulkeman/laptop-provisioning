@@ -29,7 +29,14 @@ echo '==> Provisioning setup - Creating directory for provisioning scripts'
 mkdir -p ~/laptop-provisioning
 
 echo '==> Provisioning setup - Fetching provisioning scripts'
-git clone https://github.com/wimulkeman/laptop-provisioning.git ~/laptop-provisioning
+if test -d ~/laptop-provisioning/.git; then
+  echo '==> Provisioning setup - Directory already exists, pulling latest changes'
+  cd ~/laptop-provisioning
+  git pull
+else
+  echo '==> Provisioning setup - Directory does not exist, cloning repository'
+  git clone https://github.com/wimulkeman/laptop-provisioning.git ~/laptop-provisioning
+fi
 
 cd ~/laptop-provisioning/go-task
 echo '==> Provisioning setup - Setup .env file'
