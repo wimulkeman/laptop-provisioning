@@ -27,7 +27,7 @@ tasks:
   generate:
     desc: 'Generate required files'
     cmds:
-      - task: system:generate:ssh-key
+      - task: generate:ssh-key
 
   setup:
     desc: 'Set up the working station'
