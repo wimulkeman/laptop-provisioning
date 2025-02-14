@@ -4,11 +4,8 @@ tasks:
   zsh:
     desc: Install Oh My Zsh
     cmds:
-      - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-      - brew install python3
-      - pip3 install iterm2
-      - clear
-      - python ../darwin/iterm-configuration.py
+      - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+      - git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
     status:
       - test -d ~/.oh-my-zsh
       - test ! $(which zsh)
