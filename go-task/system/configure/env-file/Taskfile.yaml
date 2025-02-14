@@ -26,6 +26,6 @@ tasks:
   fill-gitlab-token:
     cmds:
       - 'clear'
-      - 'echo "Please visit https://gitlab.com/-/user_settings/personal_access_tokens and create a new token with the following scopes: api'
-      - open -a "Google Chrome" "https://gitlab.com/-/user_settings/personal_access_tokens?name=Laptop+Provisioner&scopes=api"
-      - 'read -p "Enter your GitLab token: " GITLAB_TOKEN; echo "GITLAB_TOKEN=$GITLAB_TOKEN" >> .env'
+      - 'echo "Please visit https://gitlab.com/-/user_settings/personal_access_tokens and create a new token with the following scopes: api"'
+      - 'open -a "Google Chrome" "https://gitlab.com/-/user_settings/personal_access_tokens?name=Laptop+Provisioner&scopes=api"'
+      - 'echo "Enter your GitLab token: "; read -s GITLAB_TOKEN; echo "GITLAB_TOKEN=$GITLAB_TOKEN" >> .env'
