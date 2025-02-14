@@ -19,5 +19,5 @@ tasks:
       - git config --global --get commit.gpgSign
       - git config --global --get tag.gpgSign
       - git config --global --get gpg.format
-    depends:
+    deps:
       - system:generate:ssh-key
