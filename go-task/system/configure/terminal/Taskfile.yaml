@@ -1,0 +1,14 @@
+version: "3"
+
+tasks:
+  zsh:
+    desc: Install Oh My Zsh
+    cmds:
+      - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      - brew install python3
+      - pip3 install iterm2
+      - clear
+      - python ../darwin/iterm-configuration.py
+    status:
+      - test -d ~/.oh-my-zsh
+      - test ! $(which zsh)
