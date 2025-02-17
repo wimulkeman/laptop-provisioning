@@ -11,4 +11,3 @@ tasks:
       - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     status:
       - test -d ~/.oh-my-zsh
-      - test ! $(which zsh)
