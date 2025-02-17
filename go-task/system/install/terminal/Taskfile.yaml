@@ -4,7 +4,7 @@ tasks:
   tools:
     desc: Install terminal tools
     cmds:
-      - task oh-my-zsh
+      - task: oh-my-zsh
   oh-my-zsh:
     desc: Install Oh My Zsh
     cmds:
