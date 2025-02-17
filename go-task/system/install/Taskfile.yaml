@@ -6,3 +6,6 @@ includes:
   chrome:
     taskfile: ./chrome/Taskfile.yaml
     dir: ../../
+  terminal:
+    taskfile: ./terminal/Taskfile.yaml
+    dir: ../../

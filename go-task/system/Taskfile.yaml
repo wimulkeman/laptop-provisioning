@@ -23,6 +23,7 @@ tasks:
     cmds:
       - task: install:brew:backend
       - task: install:chrome:extensions
+      - task: install:terminal:tools
 
   generate:
     desc: 'Generate required files'

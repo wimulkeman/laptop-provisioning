@@ -7,6 +7,3 @@ includes:
   git:
     taskfile: ./git/Taskfile.yaml
     dir: ../../
-  terminal:
-    taskfile: ./terminal/Taskfile.yaml
-    dir: ../../
