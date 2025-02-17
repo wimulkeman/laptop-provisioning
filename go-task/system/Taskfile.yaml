@@ -23,6 +23,7 @@ tasks:
     cmds:
       - task: install:brew:backend
       - task: install:chrome:extensions
+      - task: configure:git:setup
       - task: install:terminal:tools
 
   generate:

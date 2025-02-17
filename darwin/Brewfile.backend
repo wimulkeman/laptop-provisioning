@@ -2,6 +2,7 @@ brew "docker"
 brew "dnsmasq"
 brew "k9s"
 brew "zsh"
+brew "glab"
 
 cask "gitkraken"
 cask "insomnia"
