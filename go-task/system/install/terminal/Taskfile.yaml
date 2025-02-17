@@ -11,3 +11,10 @@ tasks:
       - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     status:
       - test -d ~/.oh-my-zsh
+  powerlevel10k:
+    desc: Install ZSH Powerlevel10K plugin
+    cmds:
+      - brew install powerlevel10k
+      - echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+    status:
+      - test -f $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
