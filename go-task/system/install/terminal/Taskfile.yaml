@@ -16,6 +16,6 @@ tasks:
     cmds:
       - brew install powerlevel10k
       - echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc
-      - sed -i 's/^ZSH_THEME=.*$/ZSH_THEME=powerlevel10k\/powerlevel10k/' ~/.zshrc
+      - sed -i '' 's#^ZSH_THEME=.*$#ZSH_THEME="powerlevel10k/powerlevel10k"#' ~/.zshrc
     status:
       - test -f $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
