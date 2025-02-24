@@ -34,5 +34,5 @@ tasks:
   setup:
     desc: 'Set up the working station'
     cmds:
-      - task: install
       - task: generate
+      - task: install
