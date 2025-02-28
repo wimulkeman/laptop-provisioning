@@ -25,6 +25,7 @@ tasks:
       - task: install:chrome:extensions
       - task: configure:git:setup
       - task: configure:tools:all
+      - task: install:application:phpstorm
       - task: install:terminal:tools
 
   generate:

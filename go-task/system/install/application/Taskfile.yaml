@@ -1,0 +1,8 @@
+version: '3'
+tasks:
+  phpstorm:
+    desc: Configure PhpStorm license + plugins
+    cmds:
+      - clear
+      - echo "Please login to PhpStorm by choosing Login > Google to register your license."
+      - open -an "PhpStorm.app" --args installPlugins "de.espend.idea.php.annotation" "com.kalessil.phpStorm.phpInspectionsEA" "PlantUML integration" "fr.adrienbrault.idea.symfony2plugin"

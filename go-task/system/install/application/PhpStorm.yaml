@@ -1,8 +1,0 @@
-version: '3'
-tasks:
-  license:
-    desc: Configure PhpStorm license
-    cmds:
-      - clear
-      - echo "Please login to PhpStorm by choosing Login > Google to register your license."
-      - open -an "PhpStorm.app"

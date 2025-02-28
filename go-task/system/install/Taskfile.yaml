@@ -9,3 +9,6 @@ includes:
   terminal:
     taskfile: ./terminal/Taskfile.yaml
     dir: ../../
+  apps:
+    taskfile: ./application/Taskfile.yaml
+    dir: ../../
