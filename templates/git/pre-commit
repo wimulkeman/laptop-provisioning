@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Function to check merge rules
+check_merge_rules() {
+  local current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  echo "Current branch: $current_branch"
+
+  # Check if the MERGE_MSG file exists
+  if [[ -f .git/MERGE_MSG ]]; then
+    local merge_commit_message=$(cat .git/MERGE_MSG)
+    local first_line=$(echo "$merge_commit_message" | head -n 1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    echo "First line of merge commit message (trimmed): '$first_line'"
+
+    if [[ "$first_line" =~ ^Merge ]]; then
+      if [[ "$current_branch" == "develop" ]]; then
+        if ! [[ "$first_line" =~ ^Merge\ branch\ feature\/.*\ into\ develop$ || "$first_line" =~ ^Merge\ branch\ release\/.*\ into\ develop$ ]]; then
+          echo "Error: Only feature or release branches can be merged into 'develop'."
+          exit 1
+        fi
+      elif [[ "$current_branch" == "master" || "$current_branch" == "main" ]]; then
+        if ! [[ "$first_line" =~ ^Merge\ branch\ release\/.*\ into\ (master|main)$ || "$first_line" =~ ^Merge\ branch\ hotfix\/.*\ into\ (master|main)$ ]]; then
+          echo "Error: Only release or hotfix branches can be merged into 'master' or 'main'."
+          exit 1
+        fi
+      elif [[ "$current_branch" == "acceptance" ]]; then
+        if ! [[ "$first_line" =~ ^Merge\ branch\ feature\/.*\ into\ acceptance$ ]]; then
+          echo "Error: Only feature branches can be merged into 'acceptance'."
+          exit 1
+        fi
+      fi
+    fi
+  else
+    if [[ "$current_branch" == "master" || "$current_branch" == "main" || "$current_branch" == "develop" || "$current_branch" == "acceptance" ]]; then
+      echo "Error: Direct commits to 'master', 'main', 'develop', or 'acceptance' branches are not allowed."
+      exit 1
+    fi
+  fi
+}
+
+# Execute functions
+check_merge_rules
+
+
+PROJECT_DIR=`git rev-parse --show-toplevel 2> /dev/null`
+SCRIPT="$PROJECT_DIR/script/qa"
+
+if [ -f "$SCRIPT" ]; then
+    bash $SCRIPT
+    if [ $? -ne 0 ]; then
+        exit 1
+    fi
+elif make -f "$PROJECT_DIR/Makefile" qa -n > /dev/null 2>&1; then
+    make -f "$PROJECT_DIR/Makefile" qa
+    if [ $? -ne 0 ]; then
+        exit 1
+    fi
+
+fi
+
+exit 0

@@ -5,6 +5,7 @@ tasks:
     desc: Setup the Git configuration
     cmds:
       - task: config
+      - task: commit-hooks
   config:
     desc: Configure Git
     cmds:
@@ -33,6 +34,17 @@ tasks:
     deps:
       - task: :env-file:fill-gitlab-token
       - task: ::generate:ssh-key
+  commit-hooks:
+    desc: Configure Git commit hooks
+    cmds:
+      - mkdir -p ~/.git/hooks
+      - cp -r ../templates/git/* ~/.git/hooks
+      - chmod +x ~/.git/hooks/*
+    status:
+      - test -f ~/.git/hooks/pre-commit
+      - test -f ~/.git/hooks/commit-msg
+      - test -f ~/.git/hooks/pre-push
+      - test -f ~/.git/hooks/pre-commit-msg
 
   remove-ssh:
     desc: Remove the SSH key from Gitlab

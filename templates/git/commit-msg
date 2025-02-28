@@ -1,0 +1,21 @@
+#!/bin/bash
+# Function to validate Conventional Commits format
+validate_commit_message() {
+  local commit_message_file=$1
+  local commit_message=$(cat "$commit_message_file")
+  local conventional_commit_regex='^(feat|fix|docs|style|refactor|perf|test|chore|revert|build|ci|release)(\([a-zA-Z0-9_-]+\))?!?: .+'
+  echo "Commit message: $commit_message"
+  if [[ "$commit_message" =~ ^Merge ]]; then
+    echo "Merge commit detected, skipping Conventional Commits validation."
+    exit 0
+  fi
+  if ! [[ $commit_message =~ $conventional_commit_regex ]]; then
+    echo "Error: Commit message does not follow Conventional Commits format."
+    echo "Please use the format: <type>(<scope>): <description>"
+    echo "Examples: 'feat(parser): add ability to parse arrays' or 'fix: handle empty arrays correctly'"
+    exit 1
+  fi
+}
+# Execute functions
+validate_commit_message "$1"
+exit 0
