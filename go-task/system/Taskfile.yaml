@@ -24,6 +24,7 @@ tasks:
       - task: install:brew:backend
       - task: install:chrome:extensions
       - task: configure:git:setup
+      - task: configure:tools:all
       - task: install:terminal:tools
 
   generate:

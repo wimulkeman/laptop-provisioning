@@ -1,0 +1,16 @@
+version: 3
+
+tasks:
+  all:
+    desc: Configure all tools
+    cmds:
+      - task: docker
+      - task: composer
+  docker:
+    desc: Configure Docker Registry to use private GitLab registry
+    cmds:
+      - docker login gitlab.com:443 --username {{.GIT_USER_NAME}} --password {{.PROVISIONER_GITLAB_TOKEN}}
+  composer:
+    desc: Configure Composer to use private GitLab registry
+    cmds:
+      - composer config -g gitlab-token.gitlab.com {{.PROVISIONER_GITLAB_TOKEN}}
