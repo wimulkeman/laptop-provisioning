@@ -31,3 +31,7 @@ tasks:
       - 'echo "Enter your GitLab token: "; read -s GITLAB_TOKEN; echo "GITLAB_TOKEN=$GITLAB_TOKEN" >> .env'
     status:
       - grep -q "GITLAB_TOKEN=" .env
+  reset-gitlab-token:
+    cmds:
+      - 'sed -i "" "/GITLAB_TOKEN=/d" .env'
+      - task: fill-gitlab-token
