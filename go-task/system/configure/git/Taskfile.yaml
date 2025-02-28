@@ -28,7 +28,7 @@ tasks:
   setup-ssh:
     desc: Upload the SSH key to Gitlab
     cmds:
-      - glab config --global set token {{.GITLAB_TOKEN}}
+      - glab config --global set token {{.PROVISIONER_GITLAB_TOKEN}}
       - glab ssh-key add --title "Laptop Provisioner" --expires-at $(date -u -v+1y +"%Y-%m-%d") ~/.ssh/{{.USER_EMAIL}}.pub
     deps:
       - task: :env-file:fill-gitlab-token
