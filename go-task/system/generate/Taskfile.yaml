@@ -6,3 +6,12 @@ tasks:
       - ssh-keygen -t ed25519 -C {{.USER_EMAIL}} -f ~/.ssh/"$USER_EMAIL"
     status:
       - test -f ~/.ssh/{{.USER_EMAIL}}
+  remove-ssh-key:
+    desc: Remove SSH key
+    cmds:
+      - rm -rf ~/.ssh/{{.USER_EMAIL}}
+  refresh-ssh-key:
+    desc: Refresh SSH key
+    cmds:
+      - task: remove-ssh-key
+      - task: ssh-key

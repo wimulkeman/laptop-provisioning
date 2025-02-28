@@ -33,4 +33,17 @@ tasks:
       - glab ssh-key add --title "Laptop Provisioner" --expires-at $(date -u -v+1y +"%Y-%m-%d") ~/.ssh/{{.USER_EMAIL}}.pub
     deps:
       - task: ::generate:ssh-key
-      - task: :env-file:fill-gitlab-token
+
+  remove-ssh:
+    desc: Remove the SSH key from Gitlab
+    cmds:
+      - glab ssh-key delete $(glab ssh-key list --show-id | grep "Laptop Provisioner" | awk '{print $1}')
+    status:
+      - test -z "$(glab ssh-key list --show-id | grep "Laptop Provisioner")"
+  refresh-authentication:
+    desc: Refresh the SSH key and token for Gitlab
+    cmds:
+      - task: ::generate:refresh-ssh-key
+      - task: remove-ssh
+      - task: :env-file:reset-gitlab-token
+      - task: setup-ssh
