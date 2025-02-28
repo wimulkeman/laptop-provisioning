@@ -5,7 +5,6 @@ tasks:
     desc: Setup the Git configuration
     cmds:
       - task: config
-      - task: setup-ssh
   config:
     desc: Configure Git
     cmds:
@@ -25,13 +24,14 @@ tasks:
       - git config --global --get tag.gpgSign
       - git config --global --get gpg.format
     deps:
-      - system:generate:ssh-key
+      - task: setup-ssh
   setup-ssh:
     desc: Upload the SSH key to Gitlab
     cmds:
       - glab config --global set token {{.GITLAB_TOKEN}}
       - glab ssh-key add --title "Laptop Provisioner" --expires-at $(date -u -v+1y +"%Y-%m-%d") ~/.ssh/{{.USER_EMAIL}}.pub
     deps:
+      - task: :env-file:fill-gitlab-token
       - task: ::generate:ssh-key
 
   remove-ssh:
