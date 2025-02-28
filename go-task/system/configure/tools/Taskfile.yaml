@@ -14,3 +14,10 @@ tasks:
     desc: Configure Composer to use private GitLab registry
     cmds:
       - composer config -g gitlab-token.gitlab.com {{.PROVISIONER_GITLAB_TOKEN}}
+  npm:
+    desc: Configure NPM to use private packages
+    cmds:
+      - clear
+      - echo "Request your personal NPM token from your manager."
+      - open open 'slack://channel?team=T291H298U&id=U5X4MJDB7'
+      - 'echo "Enter your NPM token: "; read -s NPM_TOKEN; echo "export NPM_TOKEN=$NPM_TOKEN" >> ~/.zshrc'
