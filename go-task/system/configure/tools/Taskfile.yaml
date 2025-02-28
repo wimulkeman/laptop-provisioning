@@ -6,6 +6,8 @@ tasks:
     cmds:
       - task: docker
       - task: composer
+      - task: npm
+      - task: qlico
   docker:
     desc: Configure Docker Registry to use private GitLab registry
     cmds:
@@ -21,3 +23,7 @@ tasks:
       - echo "Request your personal NPM token from your manager."
       - open open 'slack://channel?team=T291H298U&id=U5X4MJDB7'
       - 'echo "Enter your NPM token: "; read -s NPM_TOKEN; echo "export NPM_TOKEN=$NPM_TOKEN" >> ~/.zshrc'
+  qlico:
+    desc: Configure network interface used by Qlico (Docker)
+    cmds:
+      - echo 'alias qlico_dns="sudo ifconfig lo0 alias 10.254.254.254 255.255.255.0"' >> ~/.zshrc
