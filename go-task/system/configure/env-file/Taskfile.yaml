@@ -28,7 +28,7 @@ tasks:
       - 'clear'
       - 'echo "Please visit https://gitlab.com/-/user_settings/personal_access_tokens and create a new token with the following scopes: api, read_registry and write_repository"'
       - 'open -a "Google Chrome" "https://gitlab.com/-/user_settings/personal_access_tokens?name=Laptop+Provisioner&scopes=api,read_registry,write_repository"'
-      - 'echo "Enter your GitLab token: "; read -s GITLAB_TOKEN; echo "PROVISIONER_GITLAB_TOKEN=$GITLAB_TOKEN" >> .env; glab auth login --token $GITLAB_TOKEN'
+      - 'echo "Enter your GitLab token: "; read -s GITLAB_TOKEN; echo "PROVISIONER_GITLAB_TOKEN=$GITLAB_TOKEN" >> .env; command -v glab && glab auth login --token $GITLAB_TOKEN'
     status:
       - grep -q "PROVISIONER_GITLAB_TOKEN=" .env
   reset-gitlab-token:
